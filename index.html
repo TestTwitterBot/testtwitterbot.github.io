@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="printstyle3.css">
+  <meta charset="utf-8">
+  <title>Coffee Code</title>
+  <style>
+      #code {
+         background: yellow;
+         font-size: 75px;
+         margin:100px 200px 0px;
+      }
+      button {
+         font-size: 40px;
+      }
+      .divider {
+        width:5px;
+        height:auto;
+        display:inline-block;
+      }
+</style>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+   <!--drink types-->
+   <center class="buttons1">
+      <div class = "drink1" style="display:inline"><button id='1'>Coffee #1</button></div>
+      <div class = "drink2" style="display:inline"><button id='2'>Coffee #2</button></div>
+      <div class = "drink3" style="display:inline"><button id='3'>Coffee #3</button></div>
+      <div class = "drink4" style="display:inline"><button id='4'>Coffee #4</button></div>
+   </center>
+
+   <!--add milk types-->
+
+   <center class="buttons2">
+      <div class='d1 second' style="display: none"><p id="p1"></p><button id='smilk' class = 'milk skim'>Skim Milk</button><button id='1milk' class = 'milk onep'>1% Milk</button><button id='soy' class = 'milk soy'>Soy Milk</button><button id='none' class = 'milk none'>No Milk</button></div>
+      
+      <div class='d2 second' style="display: none"><p id="p2"></p><button id='smilk' class = 'milk skim'>Skim Milk</button><button id='1milk' class = 'milk onep'>1% Milk</button><button id='soy' class = 'milk soy'>Soy Milk</button><button id='none' class = 'milk none'>No Milk</button></div>
+
+      <div class='d3 second' style="display: none"><p id="p3"></p><button id='smilk' class = 'milk skim'>Skim Milk</button><button id='1milk' class = 'milk onep'>1% Milk</button><button id='soy' class = 'milk soy'>Soy Milk</button><button id='none' class = 'milk none'>No Milk</button></div>
+      
+      <div class='d4 second' style="display: none"><p id="p4"></p><button id='smilk' class = 'milk skim'>Skim Milk</button><button id='1milk' class = 'milk onep'>1% Milk</button><button id='soy' class = 'milk soy'>Soy Milk</button><button id='none' class = 'milk none'>No Milk</button></div>
+
+   </center>
+
+   <!--Produce final drink codes here-->
+
+   <center>
+		 <div class="code">
+			 <p id="code" style="display: none"></p>
+			 <br>
+		 </div>
+      <br>
+      <p id="confirm" class="confirm" style="display: none">
+         <button>
+            Confirm
+         </button>
+      </p>
+      
+   <script>
+
+   //drink codes
+
+   var $opt1 = 'C1';
+   var $opt2 = 'C2';
+   var $opt3 = 'C3';
+   var $opt4 = 'C4';
+   var $soy = 'SY';
+   var $1milk = 'M';
+   var $nomilk = '';
+   var $skim = 'SK';
+   var $opt = '';
+   var $endcode = '';
+
+
+   //primary button commands
+   $( "#1" ).click(function() {
+      $('.second').hide();
+      $('#code').hide();
+      $('#confirm').hide();
+      $opt = $opt1;
+      $('button').css({"background-color":"white"});
+      $('#1').css({"background-color":"grey"});
+      $( ".d1" ).toggle( 400 );
+   });
+
+   $( "#2" ).click(function() {
+      $('.second').hide();
+      $('#code').hide();
+      $('#confirm').hide();
+      $opt = $opt2;
+      $('button').css({"background-color":"white"});
+      $('#2').css({"background-color":"grey"});
+      $( ".d2" ).toggle( 400 );
+   });
+
+   $( "#3" ).click(function() {
+      $('.second').hide();
+      $('#code').hide();
+      $('#confirm').hide();
+      $opt = $opt3;
+      $('button').css({"background-color":"white"});
+      $('#3').css({"background-color":"grey"});
+      $( ".d3" ).toggle( 400 );
+   });
+
+   $( "#4" ).click(function() {
+      $('.second').hide();
+      $('#code').hide();
+      $('#confirm').hide();
+      $opt = $opt4;
+      $('button').css({"background-color":"white"});
+      $('#4').css({"background-color":"grey"});
+      $( ".d4" ).toggle( 400 );
+   });
+
+   //secondary button commands
+
+   $( ".soy" ).click(function() {
+      $('#code').hide();
+      $('#confirm').hide();
+      $('.milk').css({"background-color":"white"});
+      $('.soy').css({"background-color":"grey"});
+      $endcode = $opt + $soy;
+      $('#code').html($endcode);
+      $('#code').show(400);
+      setTimeout(function(){$('#confirm').show(400);}, 350);
+      
+   });
+
+   $( ".onep" ).click(function() {
+      $('#code').hide();
+      $('#confirm').hide();
+      $('.milk').css({"background-color":"white"});
+      $('.onep').css({"background-color":"grey"});
+      $endcode = $opt + $1milk;
+      $('#code').html($endcode);
+      $('#code').show(400);
+      setTimeout(function(){$('#confirm').show(400);}, 350);
+   });
+
+   $( ".none" ).click(function() {
+      $('#code').hide();
+      $('#confirm').hide();
+      $('.milk').css({"background-color":"white"});
+      $('.none').css({"background-color":"grey"});
+      $endcode = $opt + $nomilk;
+      $('#code').html($endcode);
+      $('#code').show(400);
+      setTimeout(function(){$('#confirm').show(400);}, 350);
+   });
+
+   $( ".skim" ).click(function() {
+      $('#code').hide();
+      $('#confirm').hide();
+      $('.milk').css({"background-color":"white"});
+      $('.skim').css({"background-color":"grey"});
+      $endcode = $opt + $skim;
+      $('#code').html($endcode);
+      $('#code').show(400);
+      setTimeout(function(){$('#confirm').show(400);}, 350);
+   });
+		
+	$( ".confirm" ).click(function() {
+		$.post( "https://maker.ifttt.com/trigger/twitter_print/with/key/cpW09NpOBqMlX5-4qZk3d3", { value1: $endcode} );
+	});
+      
+     
+   //confirm button
+   //$document.getElementById('drinkcode').value=endcode;
+   
+   </script>
+   
+	 <input type="text" style="display: none" value="50"/>
+		 
+   <script 
+		src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js" 
+	  integrity="sha256-vIL0pZJsOKSz76KKVCyLxzkOT00vXs+Qz4fYRVMoDhw="
+	  crossorigin="anonymous">
+	</script>
+
+	<script>
+		// init the jsPDF library
+		const pdf = new jsPDF();
+		// select the button
+		let button = document.querySelector('#confirm');
+		// select the input
+		//let input = document.querySelector('#code');
+		//document.querySelector('#drinkcode');
+		// add 'click' event listener for the button
+		button.addEventListener('click', printPDF);
+		console.log($endcode, "Hello, world!");
+		// actual PDF options
+		/*function printPDF() {
+			// @param 1 - Coordinate (in units declared at inception of PDF document) against left edge of the page
+			// @param 2 - Coordinate (in units declared at inception of PDF document) against upper edge of the page
+			// @param 3 - String or array of strings to be added to the page. Each line is shifted one line down per font, spacing settings declared before this call.
+			pdf.text(10, 10, `Your drink code is ${$endcode}`);
+			// save the PDF document (downloadable)
+			pdf.save();
+		}*/
+	</script>
+
+</body>
+</html>
